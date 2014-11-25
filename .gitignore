@@ -1,2 +1,4 @@
 node_modules
 svg
+.DS_Store
+.sass-cache
