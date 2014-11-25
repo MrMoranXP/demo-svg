@@ -86,7 +86,7 @@ module.exports = function(grunt) {
           htmlDemo: false,
           types: 'eot,woff,ttf',
           order: 'eot,woff,ttf',
-          relativeFontPath: 'assets/fonts'
+          relativeFontPath: 'fonts'
         }
       }
     }
