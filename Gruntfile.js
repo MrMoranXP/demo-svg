@@ -85,7 +85,8 @@ module.exports = function(grunt) {
           stylesheet: 'scss',
           htmlDemo: false,
           types: 'eot,woff,ttf',
-          order: 'eot,woff,ttf'
+          order: 'eot,woff,ttf',
+          relativeFontPath: 'assets/fonts'
         }
       }
     }
