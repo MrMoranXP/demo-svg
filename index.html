@@ -3,99 +3,25 @@
 
 <head>
    <title>SVG</title>
-   <style>
-      @font-face {
-        font-family: "FontIcon";
-        src: url("fonts/font_icon.eot");
-        src: url("fonts/font_icon.eot?#iefix") format("embedded-opentype"),
-             url("fonts/font_icon.woff") format("woff"),
-             url("fonts/font_icon.ttf") format("truetype"),
-             url("fonts/font_icon.svg#fontcustom") format("svg");
-        font-weight: normal;
-        font-style: normal;
-      }
-     .icon {
-        width: 100px;
-        height: 100px;
-     }
-     .fb, .instagram {
-       fill: black;
-     }
-     .fb:hover {
-       fill: blue;
-     }
-     .instagram:hover {
-       fill: red;
-     }
-     .icon-facebook:before,
-     .icon-instagram:before {
-       display: inline-block;
-       font-family: "FontIcon";
-       font-style: normal;
-       font-weight: normal;
-       font-variant: normal;
-       line-height: 1;
-       text-decoration: inherit;
-       text-rendering: optimizeLegibility;
-       text-transform: none;
-       -moz-osx-font-smoothing: grayscale;
-       -webkit-font-smoothing: antialiased;
-       font-smoothing: antialiased;
-      }
-
-      .icon-facebook:before { content: "\f100"; }
-      .icon-instagram:before { content: "\f101"; }
-      .icon-facebook,
-      .icon-instagram {
-        color: black;
-        font-size: 100px;
-      }
-      .icon-facebook:hover {
-        color: blue;
-      }
-      .icon-instagram:hover {
-        color: red;
-      }
-   </style>
 </head>
 
 <body>
-  <svg display="none" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-      <symbol id="fb" viewBox="0 0 32 32">
-          <g transform="translate(-164.000000, -261.000000)">
-              <g transform="translate(0.000000, 261.000000)">
-                  <path d="M194.234,0.001 L165.767,0.001 C164.791,0.001 164.001,0.791 164.001,1.768 L164.001,30.235 C164.001,31.21 164.791,32.001 165.767,32.001 L180.711,32.001 L180.711,19.838 L176.922,19.838 L176.922,15.237 L180.711,15.237 L180.711,11.217 C180.711,7.084 183.235,4.833 186.922,4.833 C188.688,4.833 190.282,4.965 190.725,5.024 L190.725,9.954 L188.549,9.955 C186.544,9.955 186.156,10.908 186.156,12.307 L186.156,15.238 L190.48,15.238 L189.857,19.839 L186.155,19.839 L186.155,32.002 L194.233,32.002 C195.209,32.002 195.999,31.211 195.999,30.236 L195.999,1.769 C196,0.792 195.209,0.001 194.234,0.001 L194.234,0.001 Z"></path>
-              </g>
-          </g>
-      </symbol>
-      <symbol id="instagram" viewBox="0 0 32 32">
-          <g transform="translate(-245.000000, -261.000000)">
-              <g transform="translate(0.000000, 261.000000)">
-                  <path d="M248.685,32.001 L273.261,32.001 C275.297,32.001 277,30.295 277,28.259 L277,3.685 C277,1.649 275.297,2.27373675e-13 273.261,2.27373675e-13 L248.685,2.27373675e-13 C246.651,2.27373675e-13 245.001,1.648 245.001,3.685 L245.001,28.259 C245,30.295 246.65,32.001 248.685,32.001 L248.685,32.001 Z M267.095,4.932 C267.095,4.244 267.59,3.811 268.278,3.811 L272.014,3.811 C272.703,3.811 273.191,4.245 273.191,4.932 L273.191,8.669 C273.191,9.357 272.703,9.905 272.014,9.905 L268.278,9.905 C267.59,9.905 267.095,9.357 267.095,8.669 L267.095,4.932 L267.095,4.932 Z M260.974,9.83 C264.367,9.83 267.118,12.58 267.118,15.973 C267.118,19.366 264.367,22.118 260.974,22.118 C257.579,22.118 254.829,19.367 254.829,15.973 C254.829,12.579 257.579,9.83 260.974,9.83 L260.974,9.83 Z M248.81,13.715 L251.467,13.715 C251.264,14.477 251.144,15.147 251.144,15.998 C251.144,21.426 255.545,25.815 260.974,25.815 C266.402,25.815 270.801,21.432 270.801,16.003 C270.801,15.153 270.683,14.477 270.48,13.715 L273.191,13.715 L273.191,27.031 C273.191,27.709 272.71,28.191 272.031,28.191 L249.916,28.191 C249.235,28.191 248.81,27.709 248.81,27.031 L248.81,13.715 L248.81,13.715 Z"></path>
-              </g>
-          </g>
-      </symbol>
-    </defs>
-  </svg>
-  <h2>SVG Use inline</h2>
+  <h2>SVG USE</h2>
   <svg class='icon fb'>
     <use xlink:href="#fb"></use>
   </svg>
   <svg class='icon instagram'>
     <use xlink:href="#instagram"></use>
   </svg>
-  <h2>SVG Use external file</h2>
+  <h2>SVG USE External file</h2>
   <svg class='icon fb'>
     <use xlink:href="sprite.svg#fb"></use>
   </svg>
   <svg class='icon instagram'>
     <use xlink:href="sprite.svg#instagram"></use>
   </svg>
-  <h2>Object external file</h2>
-  <object type="image/svg+xml" class="icon" data="sprite_object.svg#fb"></object>
-  <object type="image/svg+xml" class="icon" data="sprite_object.svg#instagram"></object>
-  <h2>Icon font</h2>
+  <h2>background-image</h2>
+  <h2>FontFace</h2>
   <i id="icon-facebook" class="icon-facebook"></i>
   <i id="icon-instagram" class="icon-instagram"></i>
 </body>
