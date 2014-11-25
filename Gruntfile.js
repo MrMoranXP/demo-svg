@@ -13,7 +13,7 @@ module.exports = function(grunt) {
     },
     clean: {
       tmp : ["tmp"],
-      scss: ["scss/_icons-svg-sprite.scss"],
+      scss: ["scss/_icon*.scss"],
       css: ["assets/stylesheets/main.css"]
     },
     svgmin: {
@@ -60,7 +60,7 @@ module.exports = function(grunt) {
     sass: {
       dist: {
         files: {
-          'assets/stylesheets/main.css': 'scss/sprite_fixes.scss'
+          'assets/stylesheets/main.css': 'scss/main.scss'
         }
       }
     },
@@ -68,6 +68,24 @@ module.exports = function(grunt) {
       combine: {
         files: {
           'assets/stylesheets/main.min.css': ['assets/stylesheets/main.css']
+        }
+      }
+    },
+    webfont: {
+      icons: {
+        src: 'svg/*.svg',
+        dest: 'assets/fonts',
+        destCss: 'scss',
+        options: {
+          templateOptions: {
+            baseClass: 'font-icon',
+            classPrefix: 'font_',
+            mixinPrefix: 'font-'
+          },
+          stylesheet: 'scss',
+          htmlDemo: false,
+          types: 'eot,woff,ttf',
+          order: 'eot,woff,ttf'
         }
       }
     }
@@ -79,5 +97,6 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-copy');
   grunt.loadNpmTasks('grunt-contrib-sass');
   grunt.loadNpmTasks('grunt-contrib-cssmin');
-  grunt.registerTask('default', ['clean', 'svgmin', 'svgstore', 'iconizr', 'copy', 'sass', 'cssmin', 'clean']);
+  grunt.loadNpmTasks('grunt-webfont');
+  grunt.registerTask('default', ['clean', 'svgmin', 'svgstore', 'iconizr', 'webfont', 'copy', 'sass', 'cssmin', 'clean']);
 };

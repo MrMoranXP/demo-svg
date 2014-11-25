@@ -9,6 +9,7 @@
     "grunt-contrib-sass": "^0.8.1",
     "grunt-iconizr": "^0.2.2",
     "grunt-svgmin": "^2.0.0",
-    "grunt-svgstore": "^0.4.1"
+    "grunt-svgstore": "^0.4.1",
+    "grunt-webfont": "^0.4.8"
   }
 }
