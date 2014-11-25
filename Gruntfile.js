@@ -12,7 +12,9 @@ module.exports = function(grunt) {
       }
     },
     clean: {
-      svg: ["tmp"]
+      tmp : ["tmp"],
+      scss: ["scss/_icons-svg-sprite.scss"],
+      css: ["assets/stylesheets/main.css"]
     },
     svgmin: {
       options: {
@@ -32,10 +34,50 @@ module.exports = function(grunt) {
           dest: 'tmp/'
         }]
       }
+    },
+    iconizr: {
+      options     : {
+        common    : "svg-icon",
+        dims      : true,
+        render    : {
+          css     : false,
+          scss    : 'sass/_icons'
+        },
+      },
+      files: {
+        src  : 'svg',
+        dest : 'tmp'
+      },
+    },
+    copy: {
+      main: {
+        files: [
+          {expand: true, cwd: 'tmp/icons', src: ['**'], dest: 'assets/images'},
+          {expand: true, cwd: 'tmp/sass', src: ['_icons-svg-sprite.scss'], dest: 'scss'},
+        ],
+      },
+    },
+    sass: {
+      dist: {
+        files: {
+          'assets/stylesheets/main.css': 'scss/sprite_fixes.scss'
+        }
+      }
+    },
+    cssmin: {
+      combine: {
+        files: {
+          'assets/stylesheets/main.min.css': ['assets/stylesheets/main.css']
+        }
+      }
     }
   });
   grunt.loadNpmTasks('grunt-svgstore');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-svgmin');
-  grunt.registerTask('default', ['svgmin', 'svgstore', 'clean']);
+  grunt.loadNpmTasks('grunt-iconizr');
+  grunt.loadNpmTasks('grunt-contrib-copy');
+  grunt.loadNpmTasks('grunt-contrib-sass');
+  grunt.loadNpmTasks('grunt-contrib-cssmin');
+  grunt.registerTask('default', ['clean', 'svgmin', 'svgstore', 'iconizr', 'copy', 'sass', 'cssmin', 'clean']);
 };

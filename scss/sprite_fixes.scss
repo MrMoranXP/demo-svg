@@ -1,0 +1,10 @@
+@import "icons-svg-sprite";
+
+$spritePath: "../assets/images";
+.svg-icon {
+  display: inline-block;
+  background-image: url("#{$spritePath}/icons.svg");
+  .no-svg & {
+    background-image: url("#{$spritePath}/icons.png");
+  }
+}
